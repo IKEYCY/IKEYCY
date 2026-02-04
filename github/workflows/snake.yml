@@ -1,0 +1,34 @@
+name: Generate Snake Animation
+
+on:
+  schedule:
+    # 每天UTC时间23:50自动运行（即北京时间次日早晨7:50）
+    - cron: '50 23 * * *'
+  workflow_dispatch: # 允许手动触发
+  push:
+    branches:
+      - main # 当你向main分支推送代码时也会触发
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Snake Animation
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }} # 自动使用你的用户名
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?color_snake=orange&color_dots=#ffffff,#0bb586,#f9d71c,#eb6f4b,#64b5f6 # 可自定义颜色
+
+      - name: Deploy to Output Branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: output # 将图片推送到一个名为'output'的分支
+          keep_files: false # 每次用新文件完全替换旧文件
+          commit_message: 'chore: update snake animation'
