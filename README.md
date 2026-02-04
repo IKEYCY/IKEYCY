@@ -61,6 +61,11 @@ Here are some ideas to get you started:
 </p>
 
 <!-- 趣味性点缀：如贡献图或趣味动画 -->
+<!-- 贪吃蛇动画 - 由您的贡献记录生成 -->
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=IKEYCY&theme=github-compact&hide_border=true&area=true" alt="贡献图" width="90%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/IKEYCY/IKEYCY/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/IKEYCY/IKEYCY/output/github-contribution-grid-snake.svg" />
+    <img width="100%" alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/IKEYCY/IKEYCY/output/github-contribution-grid-snake.svg" />
+  </picture>
 </div>
